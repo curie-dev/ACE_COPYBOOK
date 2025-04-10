@@ -1,0 +1,175 @@
+016400 01 CHROME-VIN-REQUEST-SEG.
+
+016500* COPY QRCMQS01.
+
+000110******************************************************************
+
+000120* LAST MODIFIED BY JENNIFER POSEY ===> 12/04/03 *
+
+000130******************************************************************
+
+000140* MOD ID DESCRIPTION DATE ID *
+
+000150* ====== ============================================== ======== *
+
+000160* C03041 VENDOR PORTAL 120403JP *
+
+000170******************************************************************
+
+000200* BEGIN QRCMQS01
+
+000300***********************************************************
+
+000400* *
+
+000500* A P I H E A D E R S E G M E N T *
+
+000600* *
+
+000700***********************************************************
+
+000900 03 API-HEADER-SEGMENT.
+
+001500 05 API-HEADER-DATA.
+
+001600 10 API-HDR-SEGMENT-TYPE PIC X(05).
+
+001610 10 API-HDR-TRAN-TYPE PIC X(08).
+
+001700 10 API-HDR-USER-ID PIC X(08).
+
+001800 10 API-HDR-SEND-DATE PIC X(08).
+
+001900 10 API-HDR-SEND-TIME PIC X(06).
+
+002000 10 API-HDR-USER-REFERENCE PIC X(08).
+
+002100 10 API-HDR-USER-NAME PIC X(08).
+
+002200 10 API-HDR-ACAPS-ID PIC X(15).
+
+002230*
+
+002300* END QRCMQS01
+
+016600 05 CHROME-VIN-EOH PIC X(01).
+
+016700* COPY QRCRMT04.
+
+000100******************************************************************
+
+000200* BEGIN QRCRMT04
+
+000300***********************************************************
+
+000400* *
+
+000500* A P I I M A G E D A T A S E G M E N T *
+
+000600* *
+
+000700***********************************************************
+
+000800*
+
+000900 03 API-IMAGE-SEGMENT.
+
+001000 05 API-SEGMENT-HEADER.
+
+001100 10 API-SEGMENT-ID PIC X(04).
+
+001200*
+
+001300* IMAGE DATA
+
+001400*
+
+001500 03 API-IMG-LENGTH PIC 9(06).
+
+001600* 03 API-IMG-DATA PIC X(32000).
+
+001700* END QRCRMT04
+
+016800* COPY QRCCHR01.
+
+000100******************************************************************
+
+000200* LAST MODIFIED BY DUSTIN PERDUE ===> 05/05/11 *
+
+000300******************************************************************
+
+000400* MOD ID DESCRIPTION DATE ID *
+
+000500* ====== ============================================== ======== *
+
+000600* INITIAL INSTALLATION 050511DP
+
+000700******************************************************************
+
+000800* BEGIN QRCCHR01
+
+000900***********************************************************
+
+001000* *
+
+001100* C H R O M E A D S O U T P U T *
+
+001200* *
+
+001300* COPYBOOK FOR OUTPUT FILE TO CHROME WHEN REQUESTING *
+
+001400* AVAILABLE VEHICLE EQUIPMENT *
+
+001500***********************************************************
+
+001600*
+
+001700 03 API-CHROME-ADS-REQ-SEGMENT.
+
+001800 05 API-USER-ID PIC X(08).
+
+001900 05 API-APPLICANT-ID PIC X(15).
+
+002000 05 API-VEHICLE-VIN PIC X(20).
+
+002100 05 API-VEHICLE-YEAR PIC X(04).
+
+002200 05 API-VEHICLE-MAKE-NAME PIC X(36).
+
+002300 05 API-VEHICLE-MODEL-NAME PIC X(50).
+
+002400 05 API-VEHICLE-STYLE-NAME PIC X(60).
+
+002500 05 API-VEHICLE-OPTIONS OCCURS 12 TIMES.
+
+002600 10 API-VEHICLE-OPTION-CODE PIC X(10).
+
+002700 10 API-VEHICLE-OPTION-DESC PIC X(15).
+
+002800 05 API-RETURN-PARAMETERS.
+
+002900 10 API-EXCLUDE-FLEET PIC X(01).
+
+003000 10 API-USE-SAFE-STND PIC X(01).
+
+003100 10 API-INCLUDE-AVAIL-EQUIP PIC X(01).
+
+003200 10 API-INCLUDE-EXT-DESC PIC X(01).
+
+003300 10 API-INCLUDE-CONS-INFO PIC X(01).
+
+003400 10 API-EXT-TECH-SPECS PIC X(01).
+
+003500 10 API-INC-REGION-SPEC-STYLES PIC X(01).
+
+003600 10 API-ENRICHED-VEH-EQUIP PIC X(01).
+
+003700 05 API-FILLER PIC X(50).
+
+003800
+
+003900* END QRCCHR01
+
+004000
+
+016900 03 CHROME-VIN-EOS PIC X(05).
